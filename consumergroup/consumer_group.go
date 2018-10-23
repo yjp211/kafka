@@ -195,6 +195,10 @@ func (cg *ConsumerGroup) Closed() bool {
 	return cg.instance == nil
 }
 
+func (cg *ConsumerGroup) GetInstanceID() string {
+	return cg.instance.ID
+}
+
 func (cg *ConsumerGroup) Close() error {
 	shutdownError := AlreadyClosing
 	cg.singleShutdown.Do(func() {
